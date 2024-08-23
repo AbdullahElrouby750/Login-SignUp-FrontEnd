@@ -1,0 +1,42 @@
+body{
+    background-color: hsl(220, 30%, 75%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#starting{
+    background-color: hsl(210, 30%, 90%);
+    border-radius: 5px;
+    box-shadow: 15px 15px 25px hsl(220, 30%, 45%);
+    transition: width 1s 0.1s ease-in-out;
+    height: 550px!important;
+
+}
+
+#signUpSec, #logInSec{
+    height: 525px!important;
+    background-color: hsl(220, 30%, 75%);
+    border-radius: 5px;
+    box-shadow: 7px 7px 10px hsl(220, 30%, 40%);
+    transition: all 1s 0.1s ease-in-out;
+}
+
+.uplode-img, .main-info, .email-password{
+    transition: all 0.8s 0.1s ease-in-out;
+}
+
+.error-msg{
+    color: hsl(0, 100%, 50%);
+}
+
+#already-in, #forgetPass{
+    color: hsl(220, 100%, 40%);
+    cursor: pointer;
+    transform: color 1s ease-in-out;
+}
+#already-in:hover, #forgetPass:hover{
+    
+    color: hsl(220, 100%, 60%)
+}

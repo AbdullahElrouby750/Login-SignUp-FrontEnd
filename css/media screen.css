@@ -1,0 +1,10 @@
+@media screen and (max-width:600px) {
+    #DOB{
+        width: 75%!important;
+    }
+}
+@media screen and (min-width:1200px) {
+    #starting{
+        width: 60%!important;
+    }
+}
