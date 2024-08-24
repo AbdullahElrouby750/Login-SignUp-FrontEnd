@@ -11,132 +11,281 @@
     <!-- custome css -->
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/media screen.css" />
-    
   </head>
+
   <body>
-      <section id="starting" class="d-flex flex-column justify-content-around align-items-start overflow-hidden w-75 p-3">
-        
-        
-        <!-- Sign up -->
-         
+    <section
+      id="starting"
+      class="d-flex h-100 flex-column justify-content-center align-items-center overflow-hidden w-75 p-3"
+    >
+      <!-- Sign up -->
+      <!-- go & return to up side -->
+      <div
+        id="signUpSec"
+        class="container scrolling h-100 p-4 d-flex justify-content-around align-items-center overflow-hidden"
+      >
+        <!-- main info -->
+        <!-- go & return to left side -->
+        <div
+          id="main-info"
+          class="scrolling w-100 d-flex flex-column justify-content-around align-items-start"
+        >
+          <h1 class="text-center w-100 mb-3">Wlecome to your favo site</h1>
+          <input
+            type="text"
+            class="form-control my-3"
+            id="firstName"
+            placeholder="First Name"
+            required
+          />
+          <h6 id="fNameErr" class="error-msg ms-2 mb-3 d-none"></h6>
+          <input
+            type="text"
+            class="form-control my-3"
+            id="lastName"
+            placeholder="Last Name"
+          />
+          <h6 id="lNameErr" class="error-msg ms-2 mb-3 d-none"></h6>
+          <input
+            type="tel"
+            class="form-control my-3"
+            id="phoneNumber"
+            placeholder="Phone Number"
+            required
+          />
+          <h6 id="telErr" class="error-msg ms-2 mb-3 d-none"></h6>
+          <input
+            type="date"
+            class="form-control my-3 w-50 text-center align-self-center"
+            id="DOB"
+            required
+            min="1930-01-01"
+            max="2025-01-01"
+            value="2003-09-01"
+          />
+          <h6 id="DOBErr" class="error-msg ms-2 mb-3 d-none">testing</h6>
+          <div class="main-info-btn w-100 mb-3 text-end">
+            <button id="main-info-next" class="btn btn-success px-3 text-light">
+              <a href="#uplode-img" class="text-light">Next</a>
+            </button>
+          </div>
+          <p id="already-in" class="text-center m-auto fw-bold mb-3">
+            <!-- !can't give position absloute -->
+            <!-- make the scrolling with js -->
+            Already have an Account?
+          </p>
+        </div>
+
+        <!-- uplode img -->
+        <!-- go & return to both right and left side -->
+        <div
+          id="uplode-img"
+          class="scrolling w-100 d-flex flex-column justify-content-around align-items-start"
+        >
+          <h2 class="text-center w-100 mb-3">uplode a profile image</h2>
+          <input
+            type="file"
+            id="profileImage"
+            accept="image/*"
+            class="form-control my-3"
+          />
+          <h6 id="imgErr" class="error-msg ms-2 mb-3 d-none">testing</h6>
+          <div class="display-img d-none">
+            <img
+              id="displayImage"
+              src="./assets/WIN_20240207_13_27_34_Pro.jpg"
+              alt="profile image"
+              class="my-3 w-100"
+            />
+          </div>
+          <div class="uplode-img-btn w-100 text-end">
+            <button
+              id="uplode-img-next"
+              class="btn btn-warning me-2 px-4 text-light"
+            >
+              <a href="#main-info" class="text-light"> Back</a>
+            </button>
+            <button
+              id="uplode-img-back"
+              class="btn btn-success px-4 text-light"
+            >
+              <a href="#email-password" class="text-light"> Skip</a>
+            </button>
+          </div>
+        </div>
+
+        <!-- email and password -->
+        <!-- go & return to right side -->
+        <div
+          id="email-password"
+          class="scrolling w-100 d-flex flex-column justify-content-around align-items-start"
+        >
+          <input
+            type="email"
+            class="form-control my-3"
+            id="sign-up-email"
+            placeholder="Email"
+            required
+          />
+          <h6 id="EmailErr" class="error-msg ms-2 mb-3 d-none">testing</h6>
+          <input
+            type="password"
+            class="form-control my-3"
+            id="sign-up-password"
+            placeholder="Password"
+            required
+          />
+          <h6 id="passErr" class="error-msg ms-2 mb-3 d-none">testing</h6>
+          <input
+            type="password"
+            class="form-control my-3"
+            id="repassword"
+            placeholder="Password Again"
+            required
+          />
+          <h6 id="rePassErr" class="error-msg ms-2 mb-3 d-none">testing</h6>
+          <div class="email-password-btn w-100 text-end">
+            <button
+              id="email-password-back"
+              class="btn btn-warning me-2 px-4 text-light"
+            >
+              <a href="#uplode-img" class="text-light"> Back</a>
+            </button>
+            <button
+              id="email-password-next"
+              class="btn btn-success px-4 text-light"
+            >
+              Finish
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Log in -->
+      <!-- go & return to down side -->
+      <div
+        id="logInSec"
+        class="scrolling container p-4 d-flex justify-content-around align-items-center overflow-hidden d-none"
+      >
+        <!-- normal login -->
         <!-- go & return to up side -->
-        <div id="signUpSec" class="container p-4 d-flex justify-content-around align-items-center overflow-hidden">
-            
-            <!-- main info -->
-             
-            <!-- go & return to left side -->
-            <div class="main-info w-100 d-flex flex-column justify-content-around align-items-start d-none">
-                <h1 class="text-center w-100 mb-3">Wlecome to your favo site</h1>
-                <input type="text" class="form-control my-3" id="firstName" placeholder="First Name"  required/>
-                <h6 id="fNameErr" class="error-msg ms-2 mb-3 d-none">testing</h6>
-                <input type="text" class="form-control my-3" id="lastName" placeholder="Last Name" />
-                <h6 id="lNameErr" class="error-msg ms-2 mb-3 d-none">testing</h6>
-                <input type="tel" class="form-control my-3" id="phoneNumber" placeholder="Phone Number"  required/>
-                <h6 id="telErr" class="error-msg ms-2 mb-3 d-none">testing</h6>
-                <input type="date" class=" form-control my-3 w-50 text-center align-self-center" id="DOB" required min="1930-01-01" max="2025-01-01" value="2021-06-17">
-                <div class="main-info-btn w-100 mb-3 text-end">
-                    <button id="main-info-next" class="btn btn-success px-3 text-light">Next</button>
-                </div>
-                <p id="already-in" class="text-center m-auto fw-bold mb-3">Already have an Account?</p>
-            </div>
-
-            <!-- uplode img -->
-             
-            <!-- go & return to both right and left side -->
-             <div class="uplode-img w-100 d-flex flex-column justify-content-around align-items-start d-none">
-                <h2 class="text-center w-100 mb-3">uplode a profile image</h2>
-                <input type="file" id="profileImage" accept="image/*" class="form-control my-3"/>
-                <h6 id="imgErr" class="error-msg ms-2 mb-3 d-none">testing</h6>
-                <div class="display-img d-none">
-                    <img id="displayImage" src="./assets/WIN_20240207_13_27_34_Pro.jpg" alt="profile image" class="my-3 w-100"/>
-                </div>
-                <div class="uplode-img-btn w-100 text-end">
-                    <button id="uplode-img-next" class="btn btn-warning me-2 px-4 text-light">Back</button>
-                    <button id="uplode-img-back" class="btn btn-success px-4 text-light">Skip</button>
-                </div>
-             </div>
-
-            <!-- email and password -->
-              
-            <!-- go & return to right side -->
-            <div class="email-password w-100 d-flex flex-column justify-content-around align-items-start ">
-              <input type="email" class="form-control my-3" id="email" placeholder="Email" required/>
-              <h6 id="EmailPassErr" class="error-msg ms-2 mb-3 d-none">testing</h6>
-              <input type="password" class="form-control my-3" id="password" placeholder="Password" required/>
-              <h6 id="passErr" class="error-msg ms-2 mb-3 d-none">testing</h6>
-              <input type="password" class="form-control my-3" id="repassword" placeholder="Password Again" required/>
-              <h6 id="rePassErr" class="error-msg ms-2 mb-3 d-none">testing</h6>
-              <div class="email-password-btn w-100 text-end">
-                  <button id="email-password-back" class="btn btn-warning me-2 px-4 text-light">Back</button>
-                  <button id="email-password-next" class="btn btn-success px-4 text-light">Next</button>
-              </div>
-             </div>
-
+        <div
+          id="normal-login"
+          class="scrolling h-100 w-100 d-flex flex-column justify-content-center align-items-center"
+        >
+          <h1 class="text-center w-100 mb-3">Welcome Back!</h1>
+          <input
+            type="email"
+            class="form-control my-3"
+            id="logInEmail"
+            placeholder="Email"
+            required
+          />
+          <input
+            type="password"
+            class="form-control my-3"
+            id="logInPassword"
+            placeholder="Password"
+            required
+          />
+          <h6 id="logInErr" class="error-msg ms-2 mb-4 d-none">testing</h6>
+          <p id="forgetPass" class="text-center fw-bold mb-3">
+            <a href="#first-step-verfication"> Forget Your Password?</a>
+          </p>
+          <p id="go-sign-up" class="text-center fw-bold mb-3">
+            <!-- !can't give position absloute -->
+            <!-- make the scrolling with js -->
+            Sign-Up?
+          </p>
+          <div class="normal-login-btn w-100 text-end">
+            <button id="logInBtn" class="btn btn-success px-4 text-light">
+              Log In
+            </button>
+          </div>
         </div>
 
+        <!-- forget pass login-->
+        <!-- go & return to dwon side -->
+        <div
+          id="forget-pass-section"
+          class="scrolling h-100 w-100 d-flex justify-content-around align-items-center"
+        >
+          <!-- entring email first -->
+          <!-- TODO: if wrong set a bool as wrong, wait tell phone is enterd bolck accessing without checking email -->
 
-        <!-- Log in -->
-
-        <!-- go & return to down side -->
-        <div id="logInSec" class="container p-4 d-flex justify-content-around align-items-center overflow-hidden d-none">
-            
-            <!-- normal login -->
-            
-            <!-- go & return to up side -->
-             <div class="normal-login w-100 d-flex flex-column justify-content-around align-items-start">
-                <h1 class="text-center w-100 mb-3">Welcome Back!</h1>
-                <input type="email" class="form-control my-3" id="logInEmail" placeholder="Email" required/>
-                <input type="password" class="form-control my-3" id="logInPassword" placeholder="Password" required/>
-                <h6 id="logInErr" class="error-msg ms-2 mb-4 d-none">testing</h6>
-                <p id="forgetPass" class="text-center m-auto fw-bold mb-3">Forget Your Password?</p>
-                <div class="normal-login-btn w-100 text-end">
-                    <button id="logInBtn" class="btn btn-success px-4 text-light">Log In</button>
-                </div>
+          <!-- go & return to left side -->
+          <div
+            id="first-step-verfication"
+            class="scrolling h-100 w-100 d-flex flex-column justify-content-center align-items-center"
+          >
+            <h1 class="text-center w-100 mb-3">Forgot Password?</h1>
+            <label for="" class="ms-2 w-100 text-start"
+              >Enter The Last Email You Remember</label
+            >
+            <input
+              type="email"
+              class="form-control my-2"
+              id="forgotPassEmail"
+              placeholder="Email"
+              required
+            />
+            <h6 id="forgotPassErr" class="error-msg ms-2 mb-4 d-none">
+              testing
+            </h6>
+            <div class="forget-pass-btn mt-2 w-100 text-end">
+              <button
+                id="first-step-verfication-back"
+                class="btn btn-warning mx-2 px-4 text-light"
+              >
+                <a href="#normal-login" class="text-light"> Back</a>
+              </button>
+              <button
+                id="first-step-verfication-next"
+                class="btn btn-success px-4 text-light"
+              >
+                <a href="#second-step-verfication" class="text-light"> Next</a>
+              </button>
             </div>
+          </div>
 
-            <!-- forget pass login-->
-
-            <!-- go & return to dwon side -->
-             <div class="forget-pass w-100 d-flex justify-content-around align-items-start d-none">
-                 
-                 <!-- entring email first -->
-                 <!-- TODO: if wrong set a bool as wrong, wait tell phone is enterd bolck accessing without checking email --> 
-
-                 <!-- go & return to left side -->
-                 <div class="first-step-verfication w-100 d-flex flex-column justify-content-around align-items-start">
-                    <h1 class="text-center w-100 mb-3">Forgot Password?</h1>
-                    <label for="" class="ms-2">Enter The Last Email You Remember</label>
-                    <input type="email" class="form-control my-2" id="forgotPassEmail" placeholder="Email" required/>
-                    <h6 id="forgotPassErr" class="error-msg ms-2 mb-4 d-none">testing</h6>
-                    <div class="forget-pass-btn mt-2 w-100 text-end">
-                        <button id="first-step-verfication-back" class="btn btn-warning mx-2 px-4 text-light">Bak</button>
-                        <button id="first-step-verfication-back" class="btn btn-success px-4 text-light">Next</button>
-                    </div>
-                </div>
-
-                <!-- loging in using the phone number -->
-                 
-                 <!-- go & return to right side -->
-                <div class="second-step-verfication w-100 d-flex flex-column justify-content-around align-items-start d-none">
-                    <h1 class="text-center w-100 mb-3">Login Using Phone Number</h1>
-                    <label for="" class="ms-2">Enter Your Phone Number linked with the account</label>
-                    <input type="tel" class="form-control my-2" id="forgotPassPhone" placeholder="Phone Number" required/>
-                    <h6 id="forgotPassPhoneErr" class="error-msg ms-2 mb-4 d-none">testing</h6>
-                    <div class="forget-pass-btn mt-2 w-100 text-end">
-                        <button id="second-step-verfication-back" class="btn btn-warning mx-2 px-4 text-light">Back</button>
-                        <button id="second-step-verfication-next" class="btn btn-success px-4 text-light">Next</button>
-                    </div>
-                </div>
-
+          <!-- loging in using the phone number -->
+          <!-- go & return to right side -->
+          <div
+            id="second-step-verfication"
+            class="scrolling h-100 w-100 d-flex flex-column justify-content-center align-items-center"
+          >
+            <h1 class="text-center w-100 mb-3">Login Using Phone Number</h1>
+            <label for="" class="ms-2"
+              >Enter Your Phone Number linked with the account</label
+            >
+            <input
+              type="tel"
+              class="form-control my-2"
+              id="forgotPassPhone"
+              placeholder="Phone Number"
+              required
+            />
+            <h6 id="forgotPassPhoneErr" class="error-msg ms-2 mb-4 d-none">
+              testing
+            </h6>
+            <div class="forget-pass-btn mt-2 w-100 text-end">
+              <button
+                id="second-step-verfication-back"
+                class="btn btn-warning mx-2 px-4 text-light"
+              >
+                <a href="#first-step-verfication" class="text-light"> Back</a>
+              </button>
+              <button
+                id="second-step-verfication-next"
+                class="btn btn-success px-4 text-light"
+              >
+                Login
+              </button>
             </div>
-
+          </div>
         </div>
-
+      </div>
     </section>
-
-
-    
-
 
     <!-- home  -->
     <section id="home" class="bg-info d-none"></section>

@@ -4,9 +4,15 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
+    scroll-behavior: smooth;
 }
-
+a{
+    text-decoration: none;
+    cursor: pointer;
+    transform: color 1s ease-in-out;
+}
 #starting{
+    scroll-behavior: smooth;
     background-color: hsl(210, 30%, 90%);
     border-radius: 5px;
     box-shadow: 15px 15px 25px hsl(220, 30%, 45%);
@@ -14,29 +20,44 @@ body{
     height: 550px!important;
 
 }
-
 #signUpSec, #logInSec{
-    height: 525px!important;
+    scroll-behavior: smooth;
+    position: relative;
+    height: 525px;
     background-color: hsl(220, 30%, 75%);
     border-radius: 5px;
     box-shadow: 7px 7px 10px hsl(220, 30%, 40%);
-    transition: all 1s 0.1s ease-in-out;
+    transition: transform 1s 0.1s ease-in-out, display 1s 0.5 ease-in-out;
 }
 
-.uplode-img, .main-info, .email-password{
+.scrolling{
+    padding: 15px;
     transition: all 0.8s 0.1s ease-in-out;
+    position: absolute;
 }
 
 .error-msg{
     color: hsl(0, 100%, 50%);
 }
 
-#already-in, #forgetPass{
+#already-in, #forgetPass, #go-sign-up{
     color: hsl(220, 100%, 40%);
     cursor: pointer;
     transform: color 1s ease-in-out;
 }
-#already-in:hover, #forgetPass:hover{
+#already-in:hover, #forgetPass:hover,  #sign-up:hover, a{
     
     color: hsl(220, 100%, 60%)
+}
+
+
+/* for scrolling and overflow */
+#uplode-img{
+    transform: translateX(120%);
+}
+#email-password, #second-step-verfication{
+    transform: translateX(220%);
+}
+#first-step-verfication, #forget-pass-section, #logInSec{
+    transform: translateY(110%);
 }
