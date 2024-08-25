@@ -33,7 +33,7 @@
           <h1 class="text-center w-100 mb-3">Wlecome to your favo site</h1>
           <input
             type="text"
-            class="form-control my-3"
+            class="form-control my-3 border-3"
             id="firstName"
             placeholder="First Name"
             required
@@ -41,14 +41,14 @@
           <h6 id="fNameErr" class="error-msg ms-2 mb-3 d-none"></h6>
           <input
             type="text"
-            class="form-control my-3"
+            class="form-control my-3 border-3"
             id="lastName"
-            placeholder="Last Name"
+            placeholder="Last Name(optional)"
           />
           <h6 id="lNameErr" class="error-msg ms-2 mb-3 d-none"></h6>
           <input
             type="tel"
-            class="form-control my-3"
+            class="form-control my-3 border-3"
             id="phoneNumber"
             placeholder="Phone Number"
             required
@@ -87,26 +87,25 @@
             type="file"
             id="profileImage"
             accept="image/*"
-            class="form-control my-3"
+            class="form-control my-3 border-3"
           />
-          <h6 id="imgErr" class="error-msg ms-2 mb-3 d-none">testing</h6>
           <div class="display-img d-none">
             <img
               id="displayImage"
-              src="./assets/WIN_20240207_13_27_34_Pro.jpg"
+              src="./assets/defulte profile img.png"
               alt="profile image"
               class="my-3 w-100"
             />
           </div>
           <div class="uplode-img-btn w-100 text-end">
             <button
-              id="uplode-img-next"
+              id="uplode-img-back"
               class="btn btn-warning me-2 px-4 text-light"
             >
               <a href="#main-info" class="text-light"> Back</a>
             </button>
             <button
-              id="uplode-img-back"
+              id="uplode-img-next"
               class="btn btn-success px-4 text-light"
             >
               <a href="#email-password" class="text-light"> Skip</a>
@@ -122,23 +121,25 @@
         >
           <input
             type="email"
-            class="form-control my-3"
+            class="form-control my-3 border-3"
             id="sign-up-email"
             placeholder="Email"
             required
           />
           <h6 id="EmailErr" class="error-msg ms-2 mb-3 d-none">testing</h6>
+          <!-- TODO: allow showing and hidding the password -->
           <input
             type="password"
-            class="form-control my-3"
+            class="form-control my-3 border-3"
             id="sign-up-password"
             placeholder="Password"
             required
           />
           <h6 id="passErr" class="error-msg ms-2 mb-3 d-none">testing</h6>
+          <!-- TODO: allow showing and hidding the password -->
           <input
             type="password"
-            class="form-control my-3"
+            class="form-control my-3 border-3"
             id="repassword"
             placeholder="Password Again"
             required
@@ -154,6 +155,7 @@
             <button
               id="email-password-next"
               class="btn btn-success px-4 text-light"
+              onclick="finishsignup()"
             >
               Finish
             </button>
