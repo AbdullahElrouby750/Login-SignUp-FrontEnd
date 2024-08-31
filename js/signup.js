@@ -2,65 +2,74 @@
 
 // Input field
     //main info
-    const firstName = document.querySelector('#firstName');
-    const lastName = document.querySelector('#lastName');
-    const phoneNumber = document.querySelector('#phoneNumber');
-    const DOB = document.querySelector('#DOB');
+        const firstName = document.querySelector('#firstName');
+        const lastName = document.querySelector('#lastName');
+        const phoneNumber = document.querySelector('#phoneNumber');
+        const DOB = document.querySelector('#DOB');
 
     //uplode img
-    const profileImage = document.querySelector('#profileImage');
+        const profileImage = document.querySelector('#profileImage');
 
     //email & password
-    const signUpEmail = document.querySelector('#sign-up-email');
-    const signUpPassword = document.querySelector('#sign-up-password');
-    const repassword = document.querySelector('#repassword');
+        const signUpEmail = document.querySelector('#sign-up-email');
+        const signUpPassword = document.querySelector('#sign-up-password');
+        const repassword = document.querySelector('#repassword');
 
 
 
 // Button field
     //main info
-    const mainInfoNextBTN = document.querySelector('#main-info-next a');
+        const mainInfoNextBTN = document.querySelector('#main-info-next a');
     
     //uplode img
-    const UplodeImgNextBTN = document.querySelector('#uplode-img-next a');
+        const UplodeImgNextBTN = document.querySelector('#uplode-img-next a');
 
     //email & password
-    const emailPasswordNextBTN = document.querySelector('#email-password-next');
+        const emailPasswordNextBTN = document.querySelector('#email-password-next');
 
 
 
 // Error placeholder field
     //main info
-    const fNameErr = document.querySelector('#fNameErr');
-    const lNameErr = document.querySelector('#lNameErr');
-    const telErr = document.querySelector('#telErr');
-    const DOBErr = document.querySelector('#DOBErr');
+        const fNameErr = document.querySelector('#fNameErr');
+        const lNameErr = document.querySelector('#lNameErr');
+        const telErr = document.querySelector('#telErr');
+        const DOBErr = document.querySelector('#DOBErr');
 
     //uplode img
-    const imgErr = document.querySelector('#imgErr');
+        const imgErr = document.querySelector('#imgErr');
 
     //email & password
-    const EmailErr = document.querySelector('#EmailErr');
-    const passErr = document.querySelector('#passErr');
-    const rePassErr = document.querySelector('#rePassErr');
-
+        const EmailErr = document.querySelector('#EmailErr');
+        const passErr = document.querySelector('#passErr');
+        const rePassErr = document.querySelector('#rePassErr');
 
 
 //Other Element field
 
-    const signUpSection = document.querySelector('#signUpSec');
-    const logInSecSction = document.querySelector('#logInSec');
+        const startingSection = document.querySelector('#starting')
 
-    const displayImgSec = document.querySelector('.display-img');
-    const displayImg = document.querySelector('#displayImage');
+        const signUpSection = document.querySelector('#signUpSec');
+        const mainInfoSec = document.querySelector('#main-info');
+        const logInSecSction = document.querySelector('#logInSec');
+        const emailExistMsg = document.querySelector('h5');
+
+        const displayImgSec = document.querySelector('.display-img');
+        const displayImg = document.querySelector('#displayImage');
     //main info
-    const alreadyIn = document.querySelector('#already-in');
+        const alreadyIn = document.querySelector('#already-in');
+    //email & password
+        const showPass = document.querySelectorAll('.eye-icon');
+
+    
+    //Home Page Content
+        const homePage = document.querySelector('#home-page');
+        const homeProfileImg = document.querySelector('#profil-img');
+        const username = document.querySelector('#username');
+        const logoutBtn = document.querySelector('#logout-btn');
 
 
-
-
-
-// login Methods
+// signup Methods
     //Regex
 
     //email & password validation
@@ -205,16 +214,64 @@
     }
 
 
-//storeData methods
-const usersData = [];
+    function clearSignUpInputs(){
+        signUpEmail.value = "";
+        signUpEmail.classList.remove("border-success");
 
+        signUpPassword.value = "";
+        signUpPassword.classList.remove("border-success");
+        
+        repassword.value = "";
+        repassword.classList.remove("border-success");
+        
+        firstName.value = "";
+        firstName.classList.remove("border-success");
+        
+        lastName.value = "";
+        lastName.classList.remove("border-success");
 
+        phoneNumber.value = "";
+        phoneNumber.classList.remove("border-success");
+    }
+    
+    
+    
+    //storeData methods
+    const usersData = localStorage.getItem("usersData") ? JSON.parse(localStorage.getItem("usersData")) : [];
+    function updateLocalStorage(user){
+        usersData.push(user);
+        localStorage.setItem('usersData', JSON.stringify(usersData));
+    }
+    // !!clear storage
+    // localStorage.clear();
+
+    
+    // search for user 
+    function findUser(email){
+        return usersData.find(user => user.email === email);
+    }
+
+    //set home page()
+    function setHomePage(){
+        const name = `${userData.firstName} ${userData.lastName}`;
+        homeProfileImg.src = userData.profileImage;
+        username.textContent = `>Happy to meet you ${name}`;
+    }
 
 //Event Listener
 
-//got to login
-alreadyIn.addEventListener('click', event => {
+//HOME PAGE EVENTS
+//LOGING OUT
+logoutBtn.addEventListener('click', event =>{
     event.stopPropagation();
+    homePage.classList.add('d-none');
+    startingSection.classList.remove('d-none');
+    mainInfoSec.scrollIntoView({ behavior: 'smooth' });
+});
+
+
+//got to login
+function goToLogin(){
     setTimeout(() => {
         signUpSection.style.transform = 'translateY(-110%)';
         setTimeout(() => {
@@ -227,22 +284,32 @@ alreadyIn.addEventListener('click', event => {
 
         },700);
     }, 100);
+}
+alreadyIn.addEventListener('click', event => {
+    event.stopPropagation();
+    goToLogin();
 });
 
 
 //main info next
 
 //add prop dynamiclly so it be added only once and any change will just edit it and wont create a new one
-const userData = {};
+let userData = {};
 
 mainInfoNextBTN.addEventListener("click", event=>{
     event.stopPropagation();
+
+    // Force trigger a change event to handle autofill
+
+    console.log(firstName.value,validateFirstName(firstName.value));
+    console.log(lastName.value,validateLastName(lastName.value));
+    console.log(phoneNumber.value,validatePhoneNumber(phoneNumber.value));
     if(validateFirstName(firstName.value) && validateLastName(lastName.value) && validatePhoneNumber(phoneNumber.value)){
         userData.firstName = firstName.value;
         userData.lastName = lastName.value;
         userData.phoneNumber = phoneNumber.value;
         userData.DOB = DOB.value;
-        console.log(userData);
+        console.log("2",userData);
         
     }
     else{
@@ -294,7 +361,7 @@ signUpPassword.addEventListener("blur", ()=>{
     }
     else allowsigning = false;
 });
-repassword.addEventListener("blur", ()=>{
+repassword.addEventListener("blur", event=>{
     if(checkPassword(repassword.value)){
         allowsigning = true;
         userData.password = signUpPassword.value;
@@ -302,12 +369,51 @@ repassword.addEventListener("blur", ()=>{
     else allowsigning = false;
 });
 
+//calling it from the html element
 function finishsignup(){
     console.log(allowsigning);
     if(!allowsigning){
         validateEmail(signUpEmail.value);
         validatePassword(signUpPassword.value);
     }
-    console.log(userData);
+    else {
+        
+        if(findUser(userData.email)){
+            emailExistMsg.classList.remove("d-none");
+            goToLogin();
+        }
+        else{
+            console.log("hi");
+            
+            updateLocalStorage(userData);
+            // go to home
+            setHomePage();
+            clearSignUpInputs()
+            mainInfoSec.scrollIntoView({ behavior: 'smooth' });
+            homePage.classList.remove('d-none');
+            startingSection.classList.add('d-none');
+
+            userData = {};
+        }
+
+    }
+    console.log(usersData);
     
 }
+showPass.forEach(icon => {
+    icon.addEventListener("click", event=>{
+        let pass = event.target.previousElementSibling;
+        if(pass.type === "password"){
+            pass.type = "text";
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+        }
+        else{
+            pass.type = "password";
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+        }
+        
+    });
+});
+

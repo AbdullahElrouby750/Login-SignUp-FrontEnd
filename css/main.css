@@ -5,7 +5,10 @@ body{
     align-items: center;
     height: 100vh;
     scroll-behavior: smooth;
+    padding: 10px;
 }
+
+/* starting */
 a{
     text-decoration: none;
     cursor: pointer;
@@ -60,4 +63,33 @@ a{
 }
 #first-step-verfication, #forget-pass-section, #logInSec{
     transform: translateY(110%);
+}
+
+
+i{
+    font-size: 1.3rem;
+    position: absolute;
+    right: 7%;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+i:hover{
+    background-color: hsl(0, 0%, 85%);
+}
+
+
+
+/* Home */
+
+#home-page{
+    border-radius: 5px;
+    background-color: hsl(220, 30%, 65%);
+
+}
+#profil-img{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
 }
